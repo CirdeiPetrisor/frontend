@@ -11,6 +11,6 @@ import GETdata from './components/GETdata';
 
 import {useState} from 'react';
 import { render } from '@testing-library/react';
+import AdminJs from './pages/AdminJs';
 
-
-ReactDOM.render(<Post />, document.getElementById("root"));
+ReactDOM.render(<AdminJs />, document.getElementById("root"));

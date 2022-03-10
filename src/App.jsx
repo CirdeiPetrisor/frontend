@@ -13,7 +13,7 @@ function App() {
           <img className="image" src={pic} alt="imagine birouri"/>
 
             <div className="child2">
-                    <p className="wellcome">Wellcome</p>
+                    <p className="wellcome">Welcome</p>
                     <ul style={{top :170}}>
                                     <li>
                                     
