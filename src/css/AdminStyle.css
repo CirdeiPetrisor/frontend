@@ -1,0 +1,19 @@
+.App
+{
+    width:100vw;
+    height:100vh;
+}
+body{
+    margin:0;
+    padding: 0;
+}
+.Sidebar
+{
+    argin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: rgba(72, 72, 72, 0.45);
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
