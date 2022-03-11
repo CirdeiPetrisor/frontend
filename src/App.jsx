@@ -3,8 +3,88 @@ import pic from "./LogIn/design-office.jpg";
 import React from 'react';
 import './App.css';
 import  "./LogIn/LogIn.css";
+import {useEffect, useState } from 'react';
+
+
+
+    
+    
+
 
 function App() {
+    const [id,setId]=useState("");
+    const [name,setName]=useState("");
+    const [email,setEmail]=useState("");
+    const [password,setPassword]=useState("");
+    var bool=false;
+    
+
+    let saveData=()=>
+     {
+                 console.warn({id,name,email,password});
+                 let data={id,name,email,password}
+
+                 try{
+               fetch(`https://localhost:7294/api/User/${encodeURIComponent(data.email)}/${encodeURIComponent(data.password)}`, {method: 'GET',
+                
+                 headers:{'Content-type':'application/json','Accept':'Application/json'},
+                 
+                 
+             }).then(resp=> resp.text()).then(resp =>
+                {
+
+                        console.log(resp);
+                      
+
+                    if(resp==='"User neexistent!"')
+                    {
+                        alert('"User neexistent"');
+                    }
+                    else if(resp==='"Parola incorecta"')
+                    {
+                        alert('Parola incorecta')
+                    }
+                    else{
+                        alert('"Ai fost logat cu succes"')
+
+                    }
+
+                }
+             )
+        }
+        catch(error)
+        {
+            console.log(error);
+        }
+        
+        
+        try{
+            fetch(`https://localhost:7294/api/User/${encodeURIComponent(data.email)}/${encodeURIComponent(data.password)}`, {method: 'GET',
+             
+              headers:{'Content-type':'application/json','Accept':'Application/json'},
+             
+              
+          }).then(resp=> resp.json()).then(resp=>
+          {
+                console.log(resp.password)
+                
+                data.id=resp.id;
+                data.name=resp.name;
+                data.email=resp.email;
+                data.password=resp.password;
+          }
+          )
+        }
+     catch(error)
+     {
+         console.log(error);
+     }
+ 
+}
+
+
+
+
   return (
       <React.StrictMode>
     <div className="loginbox">
@@ -22,7 +102,7 @@ function App() {
                                     
                                     <span > Email</span>
                                     <li >
-                                        <input type="text" name="Email" style={{color:'grey' }} placeholder="example@gmail.com"/>
+                                        <input type="text" name="Email" style={{color:'grey' }} placeholder="example@gmail.com" value={email} onChange={(e)=>{setEmail(e.target.value)}}/>
                                     </li>
                                     
                                     
@@ -31,14 +111,14 @@ function App() {
                                     
                                     <span>Password</span>
                                     <li >
-                                        <input type="password" name="Password" value="Password "placeholder="Password" style={{color:'grey'}}/> 
+                                        <input type="password" name="Password" placeholder="Password" style={{color:'grey'}} value={password} onChange={(e)=>{setPassword(e.target.value)}}/> 
                                     </li>
                                    
                                         <hr/>
                                     
                                     
                                     <li>
-                                        <button className="logInButton" >
+                                        <button className="logInButton" onClick={saveData} >
                                             Log In
                                         </button>
                                     </li>
