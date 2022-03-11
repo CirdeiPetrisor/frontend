@@ -13,17 +13,22 @@ function Post(){
     {
                 console.warn({id,name,email,password});
                 let data={id,name,email,password}
-                fetch('https://localhost:7294/api/User', {method: 'POST', mode:'no-cors',
+                fetch('https://localhost:7294/api/User', {method: 'POST',
                
                 headers:{'Content-type':'application/json','Accept':'Application/json'},
                 
                 body:JSON.stringify(
-                    data
+                    //data
+                    {
+                        email:data.email,
+                        password:data.password
+                    }
                 )
             }).then(resp=>{
                 //console.warn("result:",result);
                resp.json().then((result)=>
                {    
+                    
                     console.warn("result",result)
                     
                     
