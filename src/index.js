@@ -13,4 +13,11 @@ import {useState} from 'react';
 import { render } from '@testing-library/react';
 import AdminJs from './pages/AdminJs';
 
-ReactDOM.render(<App />, document.getElementById("root"));
+
+
+
+
+
+
+    ReactDOM.render(<App />, document.getElementById("root"));
+    reportWebVitals();
