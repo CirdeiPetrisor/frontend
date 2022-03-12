@@ -11,7 +11,7 @@ import {NavLink} from 'react-router-dom';
 import AdminStyle from '../css/AdminStyle.css';
 import {AiOutlineHome} from "react-icons/ai";
 
-function AdminJs() {
+const AdminJs=()=> {
   return (
    
         <div className="Sidebar">
@@ -21,5 +21,5 @@ function AdminJs() {
   
   );
 }
-
+ 
 export default AdminJs;
