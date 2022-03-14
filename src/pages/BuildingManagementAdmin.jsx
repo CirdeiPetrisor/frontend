@@ -9,7 +9,7 @@ import {AiOutlineArrowLeft} from "react-icons/ai";
 import { BrowserRouter as Router ,Routes ,Route ,Link,NavLink, BrowserRouter} from 'react-router-dom';
 import AdminStyle from '../css/AdminStyle.css'
 //import './App.css';
-class GETdata extends React.Component {
+class BuildingManagementAdmin extends React.Component {
     // Constructor 
     constructor(props) {
         super(props);
@@ -39,7 +39,7 @@ class GETdata extends React.Component {
    
         return (
         <div >
-                 <div className="Sidebar">
+              <div className="Sidebar">
          
 
          <div>
@@ -162,4 +162,4 @@ class GETdata extends React.Component {
 }
 }
    
-export default GETdata;
+export default BuildingManagementAdmin;

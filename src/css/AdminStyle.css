@@ -9,11 +9,106 @@ body{
 }
 .Sidebar
 {
-    argin: 0;
+    margin: 0;
   padding: 0;
-  width: 200px;
-  background-color: rgba(72, 72, 72, 0.45);
+  width: 250px;
+  background-color: rgba(157, 155, 155, 0.45);
   position: fixed;
   height: 100%;
   overflow: auto;
+  align-items: center;
+  
+}
+
+.buttons
+{
+    color:black;
+    margin-right: 50px;
+    align-items: center;
+    position: fixed;
+    margin-left: 0;
+   border-radius: 10px;
+   width: 230px;
+}
+
+.generalChildren
+{
+    padding-left: 30px;
+}
+.header
+{
+    text-align: center;
+    align-items: ;
+    position: fixed;
+    padding-left: 60px;
+
+}
+
+.line{
+
+    width:250px;
+    padding-left: 0;
+}
+
+li{
+    margin-top: 30px;
+}
+
+.footerStyle
+{   
+
+    margin-top:400px;
+}
+a{
+   color: aliceblue;
+}
+.linkStyle{
+color:black;
+}
+.content
+{
+    padding-left: 300px;
+    align-items: center;
+    
+}
+table , tr ,td,th
+{
+    
+    text-align: center;
+    
+
+}
+table
+{
+    width:100%;
+}
+button{
+    width:200px;
+    border-radius: 10px;
+    border-style: none;
+    align-items: left;
+    align-content: left;
+   
+    
+}
+.settingsButtons
+{
+    width:200px;
+    height:40px;
+    margin-right: 50px;
+    align-items: center;
+}
+.settingButtonsDiv
+{
+    padding-top:50px;
+    padding-left: 30%;
+    padding-right: 1%;
+    align-items: center;
+    
+    
+}
+.hrStyle
+{
+    padding-left: 300px;
+    width:80%;
 }

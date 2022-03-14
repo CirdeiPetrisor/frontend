@@ -2,7 +2,7 @@
 import pic from "./LogIn/design-office.jpg";
 import React from 'react';
 
-import { BrowserRouter as Router ,Routes ,Route } from 'react-router-dom';
+import { BrowserRouter as Router ,Routes ,Route, BrowserRouter,Link } from 'react-router-dom';
 
 import './App.css';
 import  "./LogIn/LogIn.css";
@@ -10,20 +10,26 @@ import {useEffect, useState } from 'react';
 import  ReactDOM  from 'react';
 import LogIn from './pages/LogIn';
 import AdminJs from './pages/AdminJs';
-
-
+import GETdata from './components/GETdata.js';
+import BuildingManagementAdmin from "./pages/BuildingManagementAdmin";
+import OfficeManagementAdmin from "./pages/OfficeManagementAdmin";
 function App() {
     
     return (
-        <Router>
-          <Routes>
-            
-            <Route  path='/' element={<LogIn/>}/>
-            <Route  path='/Admin' element={<AdminJs/>}/>
-            
-          </Routes>
-  
-        </Router>
+     
+          <Router>
+            <Routes>
+              
+              <Route  path='/' element={<LogIn/>}/>
+              <Route  path='/Admin' element={<AdminJs/>}/>
+              <Route  path="/Admin/UsersManagement" element={<GETdata/>}/>
+              <Route path="Admin/BuildingManagement" element={<BuildingManagementAdmin/>}/>
+              <Route path="Admin/OfficeManagement" element={<OfficeManagementAdmin/>}/>
+              
+            </Routes>
+    
+          </Router>
+        
     );
   
   }

@@ -12,6 +12,8 @@ import GETdata from './components/GETdata';
 import {useState} from 'react';
 import { render } from '@testing-library/react';
 import AdminJs from './pages/AdminJs';
+import { BrowserRouter } from 'react-router-dom';
+import LogIn from './pages/LogIn';
 
 
 

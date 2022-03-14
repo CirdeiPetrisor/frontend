@@ -7,9 +7,9 @@ import {ImOffice} from "react-icons/im";
 import {VscSignOut} from "react-icons/vsc";
 import {AiOutlineArrowLeft} from "react-icons/ai";
 import { BrowserRouter as Router ,Routes ,Route ,Link,NavLink, BrowserRouter} from 'react-router-dom';
-import AdminStyle from '../css/AdminStyle.css'
+import AdminStyle from '../css/AdminStyle.css';
 //import './App.css';
-class GETdata extends React.Component {
+class OfficeManagementAdmin extends React.Component {
     // Constructor 
     constructor(props) {
         super(props);
@@ -162,4 +162,4 @@ class GETdata extends React.Component {
 }
 }
    
-export default GETdata;
+export default OfficeManagementAdmin;

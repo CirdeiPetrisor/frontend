@@ -1,14 +1,12 @@
 
 import pic from "../LogIn/design-office.jpg";
 import React from 'react';
-
-import { BrowserRouter as Router ,Route ,Switch } from 'react-router-dom';
-
 import { useNavigate } from 'react-router-dom';
 import  "../LogIn/LogIn.css";
 import {useEffect, useState } from 'react';
 import  ReactDOM  from 'react';
-
+import { BrowserRouter as Router ,Routes ,Route, Link } from 'react-router-dom';
+import AdminJs from "./AdminJs";
 let TriggerVariable=false;
     
 
@@ -56,7 +54,7 @@ const LogIn=()=> {
                     else{
                         alert('"Ai fost logat cu succes"')
                         TriggerVariable=true;
-                        goToAdmin();
+                            goToAdmin();
                     }
 
                 }
@@ -96,7 +94,9 @@ const LogIn=()=> {
 
 
   return (
+      
       <React.StrictMode>
+        
     <div className="loginbox">
         <div className="child1">
           <span className="paragraph">Office Space Management</span>
@@ -104,7 +104,7 @@ const LogIn=()=> {
 
             <div className="child2">
                     <p className="wellcome">Welcome</p>
-                    <ul style={{top :170}}>
+                    <ul style={{top :80}}>
                                     <li>
                                     
                                     <p style={{paddingBottom:30, marginRight : 400 , width: 200 }}> Log In to your account </p>
@@ -128,21 +128,26 @@ const LogIn=()=> {
                                     
                                     
                                     <li>
+                                        
                                         <button className="logInButton" onClick={()=>{ saveData()}}  >
                                             Log In
                                         </button>
+                                        
                                     </li>
                                     
                                     <li>
                                         <span className="forgot">Forgot password?</span> <span/><a href="./filaTemporara.html">Recover</a>
                                     </li>
                     </ul>
+                    
             </div>
-      
+            
         </div>
+     
     </div>
+    
     </React.StrictMode>
-  
+    
 );
  
        
