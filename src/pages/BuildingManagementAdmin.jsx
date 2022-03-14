@@ -8,20 +8,21 @@ import {VscSignOut} from "react-icons/vsc";
 import {AiOutlineArrowLeft} from "react-icons/ai";
 import { BrowserRouter as Router ,Routes ,Route ,Link,NavLink, BrowserRouter} from 'react-router-dom';
 import AdminStyle from '../css/AdminStyle.css'
+import {FiArrowDown} from 'react-icons/fi'
 //import './App.css';
 class BuildingManagementAdmin extends React.Component {
-    // Constructor 
+    // Constructor
     constructor(props) {
         super(props);
-   
+
         this.state = {
             items: [],
             DataisLoaded: false
         };
     }
-    
+
     // ComponentDidMount is used to
-    // execute the code 
+    // execute the code
     componentDidMount() {
         fetch("https://localhost:7294/api/User",{mode:'cors'},{credentials:'include'})
             .then((res) => res.json())
@@ -32,15 +33,15 @@ class BuildingManagementAdmin extends React.Component {
     }
     render() {
      const { DataisLoaded, items } = this.state;
-             if (!DataisLoaded) 
+             if (!DataisLoaded)
                  return ( <div>
-            <h1> Pleses wait some time.... </h1> 
+            <h1> Pleses wait some time.... </h1>
             </div>  )
-   
+
         return (
         <div >
-              <div className="Sidebar">
-         
+             <div className="Sidebar">
+
 
          <div>
            <header className="header">
@@ -55,18 +56,21 @@ class BuildingManagementAdmin extends React.Component {
                </a>
                <br/>
                <a>Administrator name</a>
-               
+
            </header>
-         
+
            </div>
-           
+
          <nav>
            <ul className="buttons">
-           
+
                <li >
-                 <a>
-                 <AiOutlineHome/> <i>General</i>
-                 </a >
+               <Link to="/Admin" className='linkStyle'>
+                 <button>
+                 <AiOutlineHome/> <span>General</span>
+                 <FiArrowDown/>
+                 </button>
+                 </Link >
                  <div className='generalChildren'>
                      <a>Desk Assignment</a>
                      <br/>
@@ -75,85 +79,91 @@ class BuildingManagementAdmin extends React.Component {
                  </li>
 
                    <li>
-                   <a>
-                 <FiSettings /> <i> Settings </i>
-                 </a>
+
                  </li>
                  <li>
-                   <Link to="/Admin/GetData" className='linkStyle'>
-                 <FaRegBuilding /> <i> Building Management </i>
+                   <Link to="/Admin/BuildingManagement" className='linkStyle' >
+                     <button    style={{color:'rgba(167, 204, 206, 1)'}} >
+                 <FaRegBuilding /> <span> Building Management </span>
+                 </button>
                    </Link>
 
                  </li>
 
                  <li>
-                   <a>
-                 <FiUsers /> <i> Users Management </i>
-                 </a>
+                   <Link to="/Admin/UsersManagement" className='linkStyle'>
+                     <button>
+                 <FiUsers /> <span> Users Management </span>
+                     </button>
+                 </Link>
                  </li>
                  <li>
-                   <a>
-                 <ImOffice /> <i> Office Management </i>
-                 </a>
+                   <Link to= "/Admin/OfficeManagement" className='linkStyle'>
+                   <button>
+                 <ImOffice /> <span> Office Management </span>
+                   </button>
+                 </Link>
                  </li>
                  <li className='footerStyle'>
 
-                 <a>
+                 <Link to="/" className='linkStyle'>
+                   <button>
                      <VscSignOut/>
-                     <i>   Sign Out </i>
-                   </a>
-                   
+                     <span>   Sign Out </span>
+
+                     </button>
+                   </Link>
+
 
                  </li>
              </ul>
              </nav>
-            
-            
-        
-             
-     </div >
-              
-               
-            
+
+
+
+
+     </div>
+
+
+
                 <div className="settingButtonsDiv">
                     <button className="settingsButtons"> Add</button>
                     <button className="settingsButtons">Modfiy</button>
-                    <button className="settingsButtons">Deactivate</button>
-                    <button className="settingsButtons">Re-activate</button>
+                    <button className="settingsButtons">Remove</button>
+
                  </div>
                 <br/>
                 <br/>
                 <div className="content">
                 <table>
                         <tr>
-                            <th>User</th>
-                            <th>Email</th>
-                            <th>Building</th>
-                            <th>Office</th>
-                            <th>Works Remote</th>
-                            <th>Desk</th>
-                            <th>Gender</th>
-                            <th>Nationality</th>
+                            <th>Building name</th>
+                            <th>Floors count</th>
+                            <th>Offices</th>
+                            <th>Desks</th>
+                            <th>Building address</th>
+                            <th>Occupied offices</th>
+
                         </tr>
-                       
+
                          {
-                    
-                    items.map((item) => ( 
+
+                    items.map((item) => (
+                        //Aici trebuie sa completezi cu item.buildingName sau id 
                     <tr key = { item.id } >
-                        
-                        <td> { item.name }</td> 
+                          
+                        <td> { item.name }</td>
                          <td>  { item.email }</td>
                          <td>Building</td>
                          <td>Office</td>
                          <td> Yes/No</td>
                          <td>1,2,3</td>
-                         <td>Male/Female</td>
-                         <td>Nationality</td>
+                       
                         {/* <td>Password: { item.password } </td> */}
-                     
+
                     </tr>
                     ))
-                    
+
                 }
                      </table>
             </div>
@@ -161,5 +171,5 @@ class BuildingManagementAdmin extends React.Component {
     );
 }
 }
-   
+
 export default BuildingManagementAdmin;

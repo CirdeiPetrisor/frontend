@@ -48,7 +48,7 @@ const AdminJs=()=> {
               <ul className="buttons">
               
                   <li >
-                  <Link to="" className='linkStyle'>
+                  <Link to="/Admin" className='linkStyle'>
                     <button>
                     <AiOutlineHome/> <span>General</span>
                     <FiArrowDown/>
@@ -62,11 +62,7 @@ const AdminJs=()=> {
                     </li>
 
                       <li>
-                      <Link to="" className='linkStyle'>
-                        <button>
-                    <FiSettings /> <span> Settings </span>
-                      </button>
-                    </Link>
+                      
                     </li>
                     <li>
                       <Link to="/Admin/BuildingManagement" className='linkStyle'>
