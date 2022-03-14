@@ -8,16 +8,26 @@ import {VscSignOut} from "react-icons/vsc";
 import {AiOutlineArrowLeft} from "react-icons/ai";
 import { BrowserRouter as Router ,Routes ,Route ,Link,NavLink, BrowserRouter} from 'react-router-dom';
 import AdminStyle from '../css/AdminStyle.css'
+import {FiArrowDown} from 'react-icons/fi'
+import Popup from "../pages/Popup.jsx";
+import {useState} from 'react';
+
 //import './App.css';
 class GETdata extends React.Component {
     // Constructor 
+    
+     
+   // const [buttonPopup,setButtonPopup] = useState(false);
+    
     constructor(props) {
         super(props);
    
         this.state = {
             items: [],
             DataisLoaded: false
+
         };
+        
     }
     
     // ComponentDidMount is used to
@@ -39,7 +49,7 @@ class GETdata extends React.Component {
    
         return (
         <div >
-                 <div className="Sidebar">
+                <div className="Sidebar">
          
 
          <div>
@@ -64,9 +74,12 @@ class GETdata extends React.Component {
            <ul className="buttons">
            
                <li >
-                 <a>
-                 <AiOutlineHome/> <i>General</i>
-                 </a >
+               <Link to="/Admin" className='linkStyle'>
+                 <button>
+                 <AiOutlineHome/> <span>General</span>
+                 <FiArrowDown/>
+                 </button>
+                 </Link >
                  <div className='generalChildren'>
                      <a>Desk Assignment</a>
                      <br/>
@@ -75,33 +88,41 @@ class GETdata extends React.Component {
                  </li>
 
                    <li>
-                   <a>
-                 <FiSettings /> <i> Settings </i>
-                 </a>
+                   
                  </li>
                  <li>
-                   <Link to="/Admin/GetData" className='linkStyle'>
-                 <FaRegBuilding /> <i> Building Management </i>
+                   <Link to="/Admin/BuildingManagement" className='linkStyle'>
+                     <button>
+                 <FaRegBuilding /> <span> Building Management </span>
+                 </button>
                    </Link>
 
                  </li>
 
                  <li>
-                   <a>
-                 <FiUsers /> <i> Users Management </i>
-                 </a>
+                   <Link to="/Admin/UsersManagement" className='linkStyle'>
+                     <button style={{color:"rgba(167, 204, 206, 1)"}}>
+                 <FiUsers /> <span> Users Management </span>
+                     </button>
+                    
+                 </Link>
                  </li>
                  <li>
-                   <a>
-                 <ImOffice /> <i> Office Management </i>
-                 </a>
+                   <Link to= "/Admin/OfficeManagement" className='linkStyle'>
+                   <button>
+                 <ImOffice /> <span> Office Management </span>
+                   </button>
+                 </Link>
                  </li>
                  <li className='footerStyle'>
 
-                 <a>
+                 <Link to="/" className='linkStyle'>
+                   <button>
                      <VscSignOut/>
-                     <i>   Sign Out </i>
-                   </a>
+                     <span>   Sign Out </span>
+                     
+                     </button>
+                   </Link>
                    
 
                  </li>
@@ -111,16 +132,21 @@ class GETdata extends React.Component {
             
         
              
-     </div >
+     </div>
               
                
             
                 <div className="settingButtonsDiv">
-                    <button className="settingsButtons"> Add</button>
+                    {/* <button className="settingsButtons" onClick={()=> setButtonPopup(true)} > Add</button> */}
                     <button className="settingsButtons">Modfiy</button>
                     <button className="settingsButtons">Deactivate</button>
                     <button className="settingsButtons">Re-activate</button>
+                   
                  </div>
+                 {/* <Popup trigger={true} setTrigger={mhm.setButtonPopup}>
+                        <h3>My poopup</h3>
+                        <p>This is my button</p>
+                    </Popup>   */}
                 <br/>
                 <br/>
                 <div className="content">
