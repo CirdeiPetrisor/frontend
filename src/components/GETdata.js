@@ -17,7 +17,7 @@ class GETdata extends React.Component {
     // Constructor 
     
      
-   // const [buttonPopup,setButtonPopup] = useState(false);
+   //const [buttonPopup,setButtonPopup] = useState(false);
     
     constructor(props) {
         super(props);
@@ -25,14 +25,19 @@ class GETdata extends React.Component {
         this.state = {
             items: [],
             DataisLoaded: false
-
+           
         };
-        
+       
     }
+     
+      
+        
+     
     
     // ComponentDidMount is used to
     // execute the code 
     componentDidMount() {
+      
         fetch("https://localhost:7294/api/User",{mode:'cors'},{credentials:'include'})
             .then((res) => res.json())
             .then((json) => {this.setState({
@@ -73,7 +78,7 @@ class GETdata extends React.Component {
          <nav>
            <ul className="buttons">
            
-               <li >
+               <li className="lisidebar" >
                <Link to="/Admin" className='linkStyle'>
                  <button>
                  <AiOutlineHome/> <span>General</span>
@@ -87,10 +92,8 @@ class GETdata extends React.Component {
                      </div>
                  </li>
 
-                   <li>
-                   
-                 </li>
-                 <li>
+                  
+                 <li className="lisidebar">
                    <Link to="/Admin/BuildingManagement" className='linkStyle'>
                      <button>
                  <FaRegBuilding /> <span> Building Management </span>
@@ -99,7 +102,7 @@ class GETdata extends React.Component {
 
                  </li>
 
-                 <li>
+                 <li className="lisidebar">
                    <Link to="/Admin/UsersManagement" className='linkStyle'>
                      <button style={{color:"rgba(167, 204, 206, 1)"}}>
                  <FiUsers /> <span> Users Management </span>
@@ -107,7 +110,7 @@ class GETdata extends React.Component {
                     
                  </Link>
                  </li>
-                 <li>
+                 <li className="lisidebar">
                    <Link to= "/Admin/OfficeManagement" className='linkStyle'>
                    <button>
                  <ImOffice /> <span> Office Management </span>
@@ -134,19 +137,51 @@ class GETdata extends React.Component {
              
      </div>
               
-               
+            {/* <div className="datainputs"> 
+                            <div>
+                          <div className="fieldName">  <i className="spansat" >Building name</i></div> <input type="text"></input>
+                            
+                            </div>
+                            
+                            <div>
+                            <div className="fieldName">  <i className="spansat" >Floors count</i></div> <input type="text"></input>
+                            </div>
+                            <div>
+                            <div className="fieldName">  <i className="spansat" >Building address</i></div> <input type="text"></input>
+                            </div>
+                            <div>
+                          <div className="fieldName">  <i className="spansat" >Building name</i></div> <input type="text"></input>
+                            
+                            </div>
+                            <div>
+                          <div className="fieldName">  <i className="spansat" >Building name</i></div> <input type="text"></input>
+                            
+                            </div>
+                            <div>
+                          <div className="fieldName">  <i className="spansat" >Building name</i></div> <input type="text"></input>
+                            
+                            </div>
+                            <div>
+                          <div className="fieldName">  <i className="spansat" >Building name</i></div> <input type="text"></input>
+                            
+                            </div>
+                            <div>
+                          <div className="fieldName">  <i className="spansat" >Building name</i></div> <input type="text"></input>
+                            
+                            </div>
+                  </div> */}
             
                 <div className="settingButtonsDiv">
-                    {/* <button className="settingsButtons" onClick={()=> setButtonPopup(true)} > Add</button> */}
+                    <button className="settingsButtons" onClick={()=> {this.state.statePopup=true} }> Add</button>
                     <button className="settingsButtons">Modfiy</button>
                     <button className="settingsButtons">Deactivate</button>
                     <button className="settingsButtons">Re-activate</button>
                    
                  </div>
-                 {/* <Popup trigger={true} setTrigger={mhm.setButtonPopup}>
+                 <Popup trigger={false} setTrigger={this.state.statePopup}>
                         <h3>My poopup</h3>
                         <p>This is my button</p>
-                    </Popup>   */}
+                    </Popup>  
                 <br/>
                 <br/>
                 <div className="content">
@@ -182,10 +217,12 @@ class GETdata extends React.Component {
                     
                 }
                      </table>
+                     
             </div>
+            
       </div>
     );
 }
 }
-   
+
 export default GETdata;
