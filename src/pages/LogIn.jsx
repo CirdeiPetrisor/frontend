@@ -103,11 +103,11 @@ const LogIn=()=> {
           <img className="image" src={pic} alt="imagine birouri"/>
 
             <div className="child2">
-                    <p className="wellcome">Welcome</p>
+                  
                     <ul style={{top :80}}>
                                     <li>
-                                    
-                                    <p style={{paddingBottom:30, marginRight : 400 , width: 200 }}> Log In to your account </p>
+                                    <p style={{fontSize:40,color:'black'}}>Wellcome</p>
+                                    <p style={{paddingBottom:30, marginRight : 400 , width: 200,fontSize:15 }}> Log In to your account </p>
                                     </li>
                                     
                                     <span > Email</span>
