@@ -31,7 +31,7 @@ const LogIn=()=> {
                  let data={id,name,email,password}
 
                  try{
-               fetch(`https://localhost:7294/api/User/${encodeURIComponent(data.email)}/${encodeURIComponent(data.password)}`, {method: 'GET',
+               fetch(`https://79.112.138.242:8011/api/User/${encodeURIComponent(data.email)}/${encodeURIComponent(data.password)}`, {method: 'GET',
                 
                  headers:{'Content-type':'application/json','Accept':'Application/json'},
                  
@@ -67,7 +67,7 @@ const LogIn=()=> {
         
         
         try{
-            fetch(`https://localhost:7294/api/User/${encodeURIComponent(data.email)}/${encodeURIComponent(data.password)}`, {method: 'GET',
+            fetch(`https://79.112.138.242:8011/api/User/${encodeURIComponent(data.email)}/${encodeURIComponent(data.password)}`, {method: 'GET',
              
               headers:{'Content-type':'application/json','Accept':'Application/json'},
              
