@@ -47,9 +47,9 @@ const AdminJs=()=> {
             <nav>
               <ul className="buttons">
               
-                  <li >
-                  <Link to="/Admin" className='linkStyle'>
-                    <button>
+                  <li className="lisidebar">
+                  <Link to="/Admin" className='linkStyle' >
+                    <button style={{color:'rgba(167, 204, 206, 1)'}}>
                     <AiOutlineHome/> <span>General</span>
                     <FiArrowDown/>
                     </button>
@@ -64,7 +64,7 @@ const AdminJs=()=> {
                       <li>
                       
                     </li>
-                    <li>
+                    <li className="lisidebar">
                       <Link to="/Admin/BuildingManagement" className='linkStyle'>
                         <button>
                     <FaRegBuilding /> <span> Building Management </span>
@@ -73,14 +73,14 @@ const AdminJs=()=> {
 
                     </li>
 
-                    <li>
+                    <li className="lisidebar"> 
                       <Link to="/Admin/UsersManagement" className='linkStyle'>
                         <button>
                     <FiUsers /> <span> Users Management </span>
                         </button>
                     </Link>
                     </li>
-                    <li>
+                    <li className="lisidebar">
                       <Link to= "/Admin/OfficeManagement" className='linkStyle'>
                       <button>
                     <ImOffice /> <span> Office Management </span>

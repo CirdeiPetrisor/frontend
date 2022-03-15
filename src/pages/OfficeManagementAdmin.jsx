@@ -8,7 +8,8 @@ import {VscSignOut} from "react-icons/vsc";
 import {AiOutlineArrowLeft} from "react-icons/ai";
 import { BrowserRouter as Router ,Routes ,Route ,Link,NavLink, BrowserRouter} from 'react-router-dom';
 import AdminStyle from '../css/AdminStyle.css';
-import {FiArrowDown} from 'react-icons/fi'
+import {FiArrowDown} from 'react-icons/fi';
+import inputDataUsers from "../css/inputDataUsers.css";
 //import './App.css';
 class OfficeManagementAdmin extends React.Component {
     // Constructor 
@@ -23,6 +24,8 @@ class OfficeManagementAdmin extends React.Component {
     
     // ComponentDidMount is used to
     // execute the code 
+    
+
     componentDidMount() {
         fetch("https://localhost:7294/api/User",{mode:'cors'},{credentials:'include'})
             .then((res) => res.json())
@@ -64,7 +67,7 @@ class OfficeManagementAdmin extends React.Component {
          <nav>
            <ul className="buttons">
            
-               <li >
+               <li className="lisidebar">
                <Link to="/Admin" className='linkStyle'>
                  <button>
                  <AiOutlineHome/> <span>General</span>
@@ -78,10 +81,8 @@ class OfficeManagementAdmin extends React.Component {
                      </div>
                  </li>
 
-                   <li>
-                  
-                 </li>
-                 <li>
+                   
+                 <li className="lisidebar">
                    <Link to="/Admin/BuildingManagement" className='linkStyle'>
                      <button>
                  <FaRegBuilding /> <span> Building Management </span>
@@ -90,14 +91,14 @@ class OfficeManagementAdmin extends React.Component {
 
                  </li>
 
-                 <li>
+                 <li className="lisidebar">
                    <Link to="/Admin/UsersManagement" className='linkStyle'>
                      <button>
                  <FiUsers /> <span> Users Management </span>
                      </button>
                  </Link>
                  </li>
-                 <li>
+                 <li className="lisidebar">
                    <Link to= "/Admin/OfficeManagement" className='linkStyle'>
                    <button style={{color:'rgba(167, 204, 206, 1)'}}> 
                  <ImOffice /> <span> Office Management </span>

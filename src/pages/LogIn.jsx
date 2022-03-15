@@ -121,7 +121,7 @@ const LogIn=()=> {
                                     
                                     <span>Password</span>
                                     <li >
-                                        <input type="password" name="Password" placeholder="Password" style={{color:'grey'}} value={password} onChange={(e)=>{setPassword(e.target.value)}}/> 
+                                        <input type="password" name="Password" placeholder="Enter your password" style={{color:'grey'}} value={password} onChange={(e)=>{setPassword(e.target.value)}}/> 
                                     </li>
                                    
                                         <hr/>
