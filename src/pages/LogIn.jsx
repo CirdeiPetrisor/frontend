@@ -50,6 +50,10 @@ const LogIn=()=> {
                     {
                         alert('Parola incorecta')
                     }
+                    else if (resp==='"User sau parola lipsa!"')
+                    {
+                        alert('User sau parola lipsa!')
+                    }
                     
                     else{
                         alert('"Ai fost logat cu succes"')
