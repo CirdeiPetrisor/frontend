@@ -13,7 +13,7 @@ function Post(){
     {
                 console.warn({id,name,email,password});
                 let data={id,name,email,password}
-                fetch('https://localhost:7294/api/User', {method: 'POST',
+                fetch('https://79.112.138.242:8011/api/User/', {method: 'POST',
                
                 headers:{'Content-type':'application/json','Accept':'Application/json'},
                 
