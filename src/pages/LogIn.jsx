@@ -112,7 +112,7 @@ const LogIn=()=> {
                                     
                                     <span > Email</span>
                                     <li >
-                                        <input type="text" name="Email" style={{color:'grey' }} placeholder="example@gmail.com" value={email} onChange={(e)=>{setEmail(e.target.value)}}/>
+                                        <input type="text" name="Email" style={{color:'grey',border:0,width:400}} placeholder="example@gmail.com" value={email} onChange={(e)=>{setEmail(e.target.value)}}/>
                                     </li>
                                     
                                     
@@ -121,7 +121,7 @@ const LogIn=()=> {
                                     
                                     <span>Password</span>
                                     <li >
-                                        <input type="password" name="Password" placeholder="Enter your password" style={{color:'grey'}} value={password} onChange={(e)=>{setPassword(e.target.value)}}/> 
+                                        <input type="password" name="Password" placeholder="Enter your password" style={{color:'grey',border:0,width:400}} value={password} onChange={(e)=>{setPassword(e.target.value)}}/> 
                                     </li>
                                    
                                         <hr/>
@@ -136,7 +136,7 @@ const LogIn=()=> {
                                     </li>
                                     
                                     <li>
-                                        <span className="forgot">Forgot password?</span> <span/><a href="./filaTemporara.html">Recover</a>
+                                        <span className="forgot" >Forgot password?</span> <span/><a href="./filaTemporara.html">Recover</a>
                                     </li>
                     </ul>
                     
