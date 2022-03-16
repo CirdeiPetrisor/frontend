@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {AiOutlineHome} from "react-icons/ai";
 import {FiSettings} from "react-icons/fi";
 import {FaRegBuilding} from "react-icons/fa";
@@ -18,18 +18,41 @@ class BuildingManagementAdmin extends React.Component {
 
         this.state = {
             items: [],
-            DataisLoaded: false
+            DataisLoaded: false,
+            buildingName:'',
+            buildingFloors:'',
+            buuildingAddress:''
+
+
         };
     }
+      nameChange=(e)=>
+      {
+        this.setState({buildingName:e.target.value})
+      }
+      floorsChange=(e)=>
+      {
+        this.setState({buildingFloors:e.target.value})
+      }
+      addressChange=(e)=>
+      {
+        this.setState({buuildingAddress:e.target.value})
+      }
 
-    // ComponentDidMount is used to
-    // execute the code
+
+
+
+
+    
     componentDidMount() {
-        fetch("https://79.112.138.242:8011/api/User/",{mode:'cors'},{credentials:'include'})
+      
+      
+        fetch("https://79.112.136.226:8011/api/User/",{mode:'cors'},{credentials:'include'})
             .then((res) => res.json())
             .then((json) => {this.setState({
                     items: json,
                     DataisLoaded: true });
+                    
             })
     }
     render() {
@@ -128,14 +151,14 @@ class BuildingManagementAdmin extends React.Component {
               <div className="datainputs"> 
                     
                        <div>
-                      <div className="fieldName">  <i className="spansat" >Building name</i></div> <input type="text"></input>  
+                      <div className="fieldName">  <i className="spansat" >Building name</i></div> <input type="text" value={this.state.buildingName} onChange={this.nameChange}></input>  
                         </div>
                        
                        <div>
-                       <div className="fieldName">  <i className="spansat" >Floors count</i></div> <input type="text"></input>
+                       <div className="fieldName">  <i className="spansat" >Floors count</i></div> <input type="text" value={this.state.buildingFloors} onChange={this.floorsChange}></input>
                         </div>
                        <div>
-                       <div className="fieldName">  <i className="spansat" >Building address</i></div> <input type="text"></input>
+                       <div className="fieldName">  <i className="spansat" >Building address</i></div> <input type="text" value={this.state.buuildingAddress} onChange={this.addressChange}></input>
                         </div>
                       
                      
@@ -145,7 +168,7 @@ class BuildingManagementAdmin extends React.Component {
                 
                  
                 
-                    <button className="settingsButtons"> Add</button>
+                    <button className="settingsButtons" onClick={Post(this.state.buildingName,this.state.buildingFloors,this.state.buuildingAddress)}> Add</button>
                     <button className="settingsButtons">Modfiy</button>
                     <button className="settingsButtons">Remove</button>
 
@@ -190,5 +213,51 @@ class BuildingManagementAdmin extends React.Component {
     );
 }
 }
+
+function Post(buildingName,flors,address){
+
+  // const [id,setId]=useState(" ");
+  // const [name,setName]=useState(" ");
+  // const [email,setEmail]=useState(" ");
+  // const [password,setPassword]=useState(" ");
+ 
+  
+   
+              //  console.warn({id,name,email,password});
+              //  let data={id,name,email,password}
+               fetch('https://79.112.136.226:8011/api/User/', {method: 'POST',
+              
+               headers:{'Content-type':'application/json','Accept':'Application/json'},
+               
+               body:JSON.stringify(
+                   //data
+                   {
+                        id:4,
+                       name:buildingName,
+                       email:flors,
+                       password:address
+                      //  flors:flors, 
+                      //  address:address
+                   }
+               )
+           }).then(resp=>{
+               //console.warn("result:",result);
+              resp.json().then((result)=>
+              {    
+                   
+                   console.warn("result",result)
+                   
+                   
+              })   
+                  
+       })
+
+
+   
+   
+  }
+
+
+
 
 export default BuildingManagementAdmin;

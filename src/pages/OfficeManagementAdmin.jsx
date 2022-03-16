@@ -27,7 +27,7 @@ class OfficeManagementAdmin extends React.Component {
     
 
     componentDidMount() {
-        fetch("https://79.112.138.242:8011/api/User/",{mode:'cors'},{credentials:'include'})
+        fetch("https://79.112.136.226:8011/api/User/",{mode:'cors'},{credentials:'include'})
             .then((res) => res.json())
             .then((json) => {this.setState({
                     items: json,

@@ -25,13 +25,20 @@ const LogIn=()=> {
         history('/Admin')
        }
 
-    let saveData=()=>
-     {
+       
+
+    function saveData()
+     {  
+         if(password===""&&email==="")
+         {
+             alert("email si parola neintroduse")
+         }else
+         {
                  console.warn({id,name,email,password});
                  let data={id,name,email,password}
-
+              
                  try{
-               fetch(`https://79.112.138.242:8011/api/User/${encodeURIComponent(data.email)}/${encodeURIComponent(data.password)}`, {method: 'GET',
+               fetch(`https://79.112.136.226:8011/api/User/${encodeURIComponent(data.email)}/${encodeURIComponent(data.password)}`, {method: 'GET',
                 
                  headers:{'Content-type':'application/json','Accept':'Application/json'},
                  
@@ -71,7 +78,7 @@ const LogIn=()=> {
         
         
         try{
-            fetch(`https://79.112.138.242:8011/api/User/${encodeURIComponent(data.email)}/${encodeURIComponent(data.password)}`, {method: 'GET',
+            fetch(`https://79.112.136.226:8011/api/User/${encodeURIComponent(data.email)}/${encodeURIComponent(data.password)}`, {method: 'GET',
              
               headers:{'Content-type':'application/json','Accept':'Application/json'},
              
@@ -93,7 +100,7 @@ const LogIn=()=> {
      {
          console.log(error);
      }
- 
+    }
 }
 
 
