@@ -274,3 +274,4 @@ function Post(buildingName,flors){
    
   }
 export default GETdata;
+

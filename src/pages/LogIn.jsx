@@ -29,6 +29,17 @@ const LogIn=()=> {
 
     function saveData()
      {  
+    if(password.length>0&& email==="")
+     {
+         alert("Introduceti mailul");
+     }
+     else
+     if(email.length>0&&password==="")
+     {
+         alert("introduceti parola");
+     }
+     else
+
          if(password===""&&email==="")
          {
              alert("email si parola neintroduse")
