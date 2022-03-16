@@ -11,7 +11,7 @@ import AdminStyle from '../css/AdminStyle.css'
 import {FiArrowDown} from 'react-icons/fi'
 import Popup from "../pages/Popup.jsx";
 import {useState} from 'react';
-
+import inputsOfUser from "../css/inputsOfUser.css";
 //import './App.css';
 class GETdata extends React.Component {
     // Constructor 
@@ -21,16 +21,32 @@ class GETdata extends React.Component {
     
     constructor(props) {
         super(props);
-   
+     
+     this.date={
+        firstName:"",
+        lastName:"",
+        role:"",
+        email:"",
+        password:"",
+        gender:"",
+        nationality:"",
+        active:false
+     }; 
+     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
             items: [],
-            DataisLoaded: false
-           
+            DataisLoaded: false,
+          
         };
        
     }
      
-      
+    handleChange(event) {    this.setState({lastName: event.target.value});  }
+    handleSubmit(event) {
+      alert('A name was submitted: ' + this.state.value);
+      event.preventDefault();
+    }
         
      
     
@@ -38,7 +54,7 @@ class GETdata extends React.Component {
     // execute the code 
     componentDidMount() {
       
-        fetch("https://79.112.138.242:8011/api/User/",{mode:'cors'},{credentials:'include'})
+        fetch("https://79.112.136.226:8011/api/User/",{mode:'cors'},{credentials:'include'})
             .then((res) => res.json())
             .then((json) => {this.setState({
                     items: json,
@@ -136,49 +152,34 @@ class GETdata extends React.Component {
         
              
      </div>
-              
-            {/* <div className="datainputs"> 
-                            <div>
-                          <div className="fieldName">  <i className="spansat" >Building name</i></div> <input type="text"></input>
-                            
-                            </div>
-                            
-                            <div>
-                            <div className="fieldName">  <i className="spansat" >Floors count</i></div> <input type="text"></input>
-                            </div>
-                            <div>
-                            <div className="fieldName">  <i className="spansat" >Building address</i></div> <input type="text"></input>
-                            </div>
-                            <div>
-                          <div className="fieldName">  <i className="spansat" >Building name</i></div> <input type="text"></input>
-                            
-                            </div>
-                            <div>
-                          <div className="fieldName">  <i className="spansat" >Building name</i></div> <input type="text"></input>
-                            
-                            </div>
-                            <div>
-                          <div className="fieldName">  <i className="spansat" >Building name</i></div> <input type="text"></input>
-                            
-                            </div>
-                            <div>
-                          <div className="fieldName">  <i className="spansat" >Building name</i></div> <input type="text"></input>
-                            
-                            </div>
-                            <div>
-                          <div className="fieldName">  <i className="spansat" >Building name</i></div> <input type="text"></input>
-                            
-                            </div>
-                  </div> */}
+     <div className="datainputs"> 
+                    
+                    
+                   <label className="fieldName"> First name  <input  className="inputset" type="text" value={this.date.firstName} onChange={this.handleChange} />  </label>
+                     
+                    
+                    
+                    <label className="fieldName"> Last name <input  className="inputset" type="text" value={this.date.lastName} /> </label>
+                     
+                   
+                    <label className="fieldName">Email  <input  className="inputset" type="text" value={this.role} onChange={this.addressChange}/> </label>
+                     
+                    <label className="fieldName">Role  <input  className="inputset" type="text" value={this.email} onChange={this.addressChange}/></label>
+                    
+                    <label className="fieldName">Password  <input  className="inputset" type="password" value={this.password} onChange={this.addressChange}/> </label>
+                    <label className="fieldName">Gender  <input  className="inputset" type="text" value={this.gender} onChange={this.addressChange}/> </label>
+                    <label className="fieldName">Nationality  <input  className="inputset" type="text" value={this.nationality} onChange={this.addressChange}/> </label>
+                    <label className="fieldName">Active  <input  className="inputset" type="text" value={this.active} onChange={this.addressChange}/> </label>
+          </div>
             
                 <div className="settingButtonsDiv">
-                    <button className="settingsButtons" onClick={()=> {this.state.statePopup=true} }> Add</button>
+                    <button className="settingsButtons" onClick={console.log(this.date.firstName) }> Add</button>
                     <button className="settingsButtons">Modfiy</button>
                     <button className="settingsButtons">Deactivate</button>
                     <button className="settingsButtons">Re-activate</button>
                    
                  </div>
-                 <Popup trigger={false} setTrigger={this.state.statePopup}>
+                 <Popup trigger={false} setTrigger={CONSOLESHOW(this.date)}>
                         <h3>My poopup</h3>
                         <p>This is my button</p>
                     </Popup>  
@@ -200,16 +201,16 @@ class GETdata extends React.Component {
                          {
                     
                     items.map((item) => ( 
-                    <tr key = { item.id } >
+                    <tr key = { item.id} >
                         
-                        <td> { item.name }</td> 
+                        <td> { item.first_name +" "+item.last_name }</td> 
                          <td>  { item.email }</td>
                          <td>Building</td>
                          <td>Office</td>
                          <td> Yes/No</td>
-                         <td>1,2,3</td>
-                         <td>Male/Female</td>
-                         <td>Nationality</td>
+                         <td>{item.role}</td>
+                         <td>{item.gender}</td>
+                         <td>{item.nationality}</td>
                         {/* <td>Password: { item.password } </td> */}
                      
                     </tr>
@@ -224,5 +225,52 @@ class GETdata extends React.Component {
     );
 }
 }
+ 
+function CONSOLESHOW( item)
+{
+    console.log(item);
+}
+function Post(buildingName,flors){
 
+  
+  
+   
+              //  console.warn({id,name,email,password});
+              //  let data={id,name,email,password}
+               fetch('https://79.112.136.226:8011/api/User/', {method: 'POST',
+              
+               headers:{'Content-type':'application/json','Accept':'Application/json'},
+               
+               body:JSON.stringify(
+                   //data
+                   {
+                        id:4,
+                        first_name:buildingName,
+                       last_name:flors,
+                       role: " ",
+                       email: " ",
+                       password:" ",
+                       gender: " ",
+                       nationality: " ",
+                       active: true
+                      
+                      
+                   }
+               )
+           }).then(resp=>{
+               //console.warn("result:",result);
+              resp.json().then((result)=>
+              {    
+                   
+                   console.warn("result",result)
+                   
+                   
+              })   
+                  
+       })
+
+
+   
+   
+  }
 export default GETdata;
