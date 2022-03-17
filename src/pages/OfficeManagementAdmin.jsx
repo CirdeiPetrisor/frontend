@@ -55,10 +55,10 @@ class OfficeManagementAdmin extends React.Component {
              <br/>
              <br/>
                <a>
-                 Administrator:
+                Logged In as:
                </a>
                <br/>
-               <a>Administrator name</a>
+               <a></a>
                
            </header>
          
