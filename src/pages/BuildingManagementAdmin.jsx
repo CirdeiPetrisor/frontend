@@ -15,7 +15,8 @@ class BuildingManagementAdmin extends React.Component {
     // Constructor
     constructor(props) {
         super(props);
-
+        
+        
         this.state = {
             items: [],
             DataisLoaded: false,
@@ -76,10 +77,10 @@ class BuildingManagementAdmin extends React.Component {
              <br/>
              <br/>
                <a>
-                 Administrator:
+                 Logged In as:
                </a>
                <br/>
-               <a>Administrator name</a>
+               <a></a>
 
            </header>
 

@@ -20,8 +20,11 @@ import { BrowserRouter as Router ,Routes ,Route ,Link,NavLink, BrowserRouter} fr
 import GETdata from '../components/GETdata';
 import BuildingManagementAdmin from "./BuildingManagementAdmin";
 import OfficeManagementAdmin from "./OfficeManagementAdmin";
-const AdminJs=()=> {
+import LogIn from './LogIn';
+const AdminJs=({sendData})=> {
   return (
+
+
         <div>
         <div className="Sidebar">
          
@@ -35,10 +38,10 @@ const AdminJs=()=> {
                 <br/>
                 <br/>
                   <a>
-                    Administrator:
+                    Logged In as :
                   </a>
                   <br/>
-                  <a>Administrator name</a>
+                  <a> </a>
                   
               </header>
             
@@ -89,7 +92,7 @@ const AdminJs=()=> {
                     </li>
                     <li className='footerStyle'>
 
-                    <Link to="" className='linkStyle'>
+                    <Link to="/" className='linkStyle'>
                       <button>
                         <VscSignOut/>
                         <span>   Sign Out </span>

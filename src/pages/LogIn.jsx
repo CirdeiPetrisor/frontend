@@ -7,25 +7,30 @@ import {useEffect, useState } from 'react';
 import  ReactDOM  from 'react';
 import { BrowserRouter as Router ,Routes ,Route, Link } from 'react-router-dom';
 import AdminJs from "./AdminJs";
+
+
 let TriggerVariable=false;
     
 
-const LogIn=()=> {
+const LogIn=(props)=> {
     const [id,setId]=useState("");
     const [name,setName]=useState("");
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
-   
     
+    const [data,setData]=useState('');
     let history=useNavigate();
    
-     
+    
     function goToAdmin()
     {   
         history('/Admin')
        }
-
-       
+       const sendData=(ceva)=>
+       {
+        setData(ceva);
+       }
+     
 
     function saveData()
      {  
@@ -76,6 +81,7 @@ const LogIn=()=> {
                     else{
                         alert('"Ai fost logat cu succes"')
                         TriggerVariable=true;
+                           sendData(data.email);
                             goToAdmin();
                     }
 
@@ -118,8 +124,9 @@ const LogIn=()=> {
   return (
       
       <React.StrictMode>
-        
+         
     <div className="loginbox">
+    
         <div className="child1">
           <span className="paragraph">Office Space Management</span>
           <img className="image" src={pic} alt="imagine birouri"/>

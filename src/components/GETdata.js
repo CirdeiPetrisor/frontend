@@ -12,6 +12,8 @@ import {FiArrowDown} from 'react-icons/fi'
 import Popup from "../pages/Popup.jsx";
 import {useState} from 'react';
 import inputsOfUser from "../css/inputsOfUser.css";
+import {useTable,useRowSelect} from 'react-table';
+
 //import './App.css';
 class GETdata extends React.Component {
     // Constructor 
@@ -21,33 +23,113 @@ class GETdata extends React.Component {
     
     constructor(props) {
         super(props);
+      
+    
+       
      
-     this.date={
-        firstName:"",
-        lastName:"",
-        role:"",
-        email:"",
-        password:"",
-        gender:"",
-        nationality:"",
-        active:false
-     }; 
      this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChangeLastName=this.handleChangeLastName.bind(this);
+    this.handleChangeEmail=this.handleChangeEmail.bind(this);
+    this.handleChangePassword=this.handleChangePassword.bind(this);
+    this.handleChangeGender=this.handleChangeGender.bind(this);
+    this.handleChangeRole=this.handleChangeRole.bind(this);
+    this.handleChangeNationality=this.handleChangeNationality.bind(this);
+    this.handleChangeActive=this.handleChangeActive.bind(this);
+
+
         this.state = {
             items: [],
             DataisLoaded: false,
-          
+            firstName:"",
+            lastName:"",
+            role:"",
+            email:"",
+            password:"",
+            gender:"",
+            nationality:"",
+            active:false,
+            
         };
+        
        
     }
-     
-    handleChange(event) {    this.setState({lastName: event.target.value});  }
+    
+    handleChange(event) {    this.setState({firstName: event.target.value,
+      // lastName: event.target.value,
+      // role: event.target.value,
+      // email: event.target.value,
+      // password: event.target.value,
+      // gender: event.target.value,
+      // nationality: event.target.value,
+      // active: event.target.value,
+      
+
+    });  }
+    handleChangeLastName(event)
+    {
+      this.setState(
+        {
+          lastName:event.target.value
+        }
+      )
+    }
+    
     handleSubmit(event) {
-      alert('A name was submitted: ' + this.state.value);
+      Post(this.state.firstName,this.state.lastName,this.state.role,this.state.email,this.state.password,this.state.gender,this.state.nationality,Boolean(this.state.active));
+      console.log(this.state.role)
+      console.log(Boolean(this.state.active))
+     
       event.preventDefault();
     }
-        
+    handleChangeRole(event)
+    {
+      this.setState(
+        {
+          role:event.target.value
+        }
+      )
+    }
+    handleChangeEmail(event)
+    {
+      this.setState(
+        {
+          email:event.target.value
+        }
+      )
+    }
+    handleChangeNationality(event)
+    {
+      this.setState(
+        {
+          nationality:event.target.value
+        }
+      )
+    }
+    handleChangePassword(event)
+    {
+      this.setState(
+        {
+          password:event.target.value
+        }
+      )
+    }
+    handleChangeGender(event)
+    {
+      this.setState(
+        {
+          gender:event.target.value
+        }
+      )
+    }
+    handleChangeActive(event)
+    {
+      this.setState(
+        {
+          active:event.target.value
+        }
+      )
+    }
      
     
     // ComponentDidMount is used to
@@ -82,10 +164,10 @@ class GETdata extends React.Component {
              <br/>
              <br/>
                <a>
-                 Administrator:
+                 Logged In as:
                </a>
                <br/>
-               <a>Administrator name</a>
+               <a></a>
                
            </header>
          
@@ -152,40 +234,42 @@ class GETdata extends React.Component {
         
              
      </div>
-     <div className="datainputs"> 
+     <form className="datainputs"> 
                     
                     
-                   <label className="fieldName"> First name  <input  className="inputset" type="text" value={this.date.firstName} onChange={this.handleChange} />  </label>
-                     
+                   <label className="fieldName"> First name  <input  className="inputset" type="text" value={this.state.firstName}  onChange={this.handleChange} />  </label>      
                     
                     
-                    <label className="fieldName"> Last name <input  className="inputset" type="text" value={this.date.lastName} /> </label>
+                    <label className="fieldName"> Last name <input  className="inputset" type="text" value={this.state.lastName} onChange={this.handleChangeLastName} /> </label>
                      
                    
-                    <label className="fieldName">Email  <input  className="inputset" type="text" value={this.role} onChange={this.addressChange}/> </label>
+                    <label className="fieldName">Email  <input  className="inputset" type="text" value={this.state.email} onChange={this.handleChangeEmail}/> </label>
                      
-                    <label className="fieldName">Role  <input  className="inputset" type="text" value={this.email} onChange={this.addressChange}/></label>
+                    <label className="fieldName">Role  <input  className="inputset" type="text" value={this.state.role} onChange={this.handleChangeRole}/></label>
                     
-                    <label className="fieldName">Password  <input  className="inputset" type="password" value={this.password} onChange={this.addressChange}/> </label>
-                    <label className="fieldName">Gender  <input  className="inputset" type="text" value={this.gender} onChange={this.addressChange}/> </label>
-                    <label className="fieldName">Nationality  <input  className="inputset" type="text" value={this.nationality} onChange={this.addressChange}/> </label>
-                    <label className="fieldName">Active  <input  className="inputset" type="text" value={this.active} onChange={this.addressChange}/> </label>
-          </div>
+                    <label className="fieldName">Password  <input  className="inputset" type="password" value={this.state.password} onChange={this.handleChangePassword}/> </label>
+
+                    <label className="fieldName">Gender  <input  className="inputset" type="text" value={this.state.gender} onChange={this.handleChangeGender}/> </label>
+
+                    <label className="fieldName">Nationality  <input  className="inputset" type="text" value={this.state.nationality} onChange={this.handleChangeNationality}/> </label>
+
+                    <label className="fieldName">Active  <input  className="inputset" type="boolean" value={this.state.active} onChange={this.handleChangeActive}/> </label>
+          </form>
             
                 <div className="settingButtonsDiv">
-                    <button className="settingsButtons" onClick={console.log(this.date.firstName) }> Add</button>
+                    <button className="settingsButtons" onClick={this.handleSubmit }> Add</button>
                     <button className="settingsButtons">Modfiy</button>
                     <button className="settingsButtons">Deactivate</button>
                     <button className="settingsButtons">Re-activate</button>
                    
                  </div>
-                 <Popup trigger={false} setTrigger={CONSOLESHOW(this.date)}>
-                        <h3>My poopup</h3>
-                        <p>This is my button</p>
-                    </Popup>  
+                 
+
                 <br/>
                 <br/>
                 <div className="content">
+              
+                      
                 <table>
                         <tr>
                             <th>User</th>
@@ -197,10 +281,11 @@ class GETdata extends React.Component {
                             <th>Gender</th>
                             <th>Nationality</th>
                         </tr>
-                       
+                      
                          {
-                    
+                       
                     items.map((item) => ( 
+                      
                     <tr key = { item.id} >
                         
                         <td> { item.first_name +" "+item.last_name }</td> 
@@ -214,10 +299,13 @@ class GETdata extends React.Component {
                         {/* <td>Password: { item.password } </td> */}
                      
                     </tr>
+                    
                     ))
                     
                 }
+                 
                      </table>
+                  
                      
             </div>
             
@@ -230,7 +318,7 @@ function CONSOLESHOW( item)
 {
     console.log(item);
 }
-function Post(buildingName,flors){
+function Post(firstName,lastName,role,email,password,gender,nationality,active){
 
   
   
@@ -245,16 +333,14 @@ function Post(buildingName,flors){
                    //data
                    {
                         id:4,
-                        first_name:buildingName,
-                       last_name:flors,
-                       role: " ",
-                       email: " ",
-                       password:" ",
-                       gender: " ",
-                       nationality: " ",
-                       active: true
-                      
-                      
+                        first_name:firstName,
+                       last_name:lastName,
+                       role: role,
+                       email: email,
+                       password:password,
+                       gender: gender,
+                       nationality: nationality,
+                       active: active
                    }
                )
            }).then(resp=>{
