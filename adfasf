@@ -1,0 +1,101 @@
+[33mcommit e4385ba4b7dca01be13f51f938329a3dcb9e97fb[m[33m ([m[1;36mHEAD -> [m[1;32mfrontend[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/frontend[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Petrisor <petrisorc65@gmail.com>
+Date:   Mon Mar 21 19:07:24 2022 +0200
+
+    commit
+
+[33mcommit 01825e9eedd6e66fe4849afca7bab96ad58a8a34[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m
+Author: Petrisor <petrisorc65@gmail.com>
+Date:   Thu Mar 17 02:53:24 2022 +0200
+
+    Implemented the POST for user
+
+[33mcommit af7c8f5f61c7327d86e1a9fefa655d9bbc76b7ed[m
+Author: Petrisor <petrisorc65@gmail.com>
+Date:   Wed Mar 16 21:59:59 2022 +0200
+
+    updates
+
+[33mcommit c50ecd0762514b9d895506199a25bad6ac0b9762[m
+Author: Petrisor <petrisorc65@gmail.com>
+Date:   Wed Mar 16 21:30:21 2022 +0200
+
+    updates
+
+[33mcommit 77266b5a088fd575ba95dc8c4f77867c120a0fd3[m
+Author: Petrisor <petrisorc65@gmail.com>
+Date:   Tue Mar 15 23:44:56 2022 +0200
+
+    changed the favicon and the title of the app
+
+[33mcommit eaf7add35c7b94d4352224432f714e5c98f36334[m
+Author: Petrisor <petrisorc65@gmail.com>
+Date:   Tue Mar 15 21:56:11 2022 +0200
+
+    login no field inserted
+
+[33mcommit 5ee52425021e2fede8894785a736145bca6dbe4b[m
+Author: Petrisor <petrisorc65@gmail.com>
+Date:   Tue Mar 15 21:50:27 2022 +0200
+
+    login design updated (mostrly changed)
+
+[33mcommit d8bb03719d9e4372f15f2a60db1d11c669accc40[m
+Author: Petrisor <petrisorc65@gmail.com>
+Date:   Tue Mar 15 20:16:53 2022 +0200
+
+    connection to backend port forwarding
+
+[33mcommit 18f1180dd67bc9e085ed6bd4932519f49c225afb[m
+Author: Petrisor <petrisorc65@gmail.com>
+Date:   Tue Mar 15 19:37:46 2022 +0200
+
+    Little changes
+
+[33mcommit ee65abc14588fe674cfbcdda2dcc902f55e3660d[m
+Author: Petrisor <petrisorc65@gmail.com>
+Date:   Tue Mar 15 19:29:00 2022 +0200
+
+    Little changes
+
+[33mcommit d7057391b354a0060ef2d6707993a8199d7cbf23[m
+Author: Petrisor <petrisorc65@gmail.com>
+Date:   Tue Mar 15 01:38:13 2022 +0200
+
+    management pages
+
+[33mcommit 76a887b7be5882b0bdc26b490e5c3971db9f2e02[m
+Author: Petrisor <petrisorc65@gmail.com>
+Date:   Mon Mar 14 23:45:25 2022 +0200
+
+    BuildingPages
+
+[33mcommit d3626d7a176e18ccb8464fe962a29d470488a5f8[m
+Author: Petrisor <petrisorc65@gmail.com>
+Date:   Sun Mar 13 01:41:33 2022 +0200
+
+    Impremented routers
+
+[33mcommit 264693060d1edf7536cd7deb2a93ab707911de0c[m
+Author: Petrisor <petrisorc65@gmail.com>
+Date:   Fri Mar 11 19:20:29 2022 +0200
+
+    LogIn functionality
+
+[33mcommit aa8b0ea66ba9ce59c2ea0d630eede051b10acd5e[m
+Author: Petrisor <petrisorc65@gmail.com>
+Date:   Thu Mar 10 15:32:49 2022 +0200
+
+    Components
+
+[33mcommit e4f98cd4bf21e68cc37e626910dc18f2a8051088[m
+Author: Petrisor <petrisorc65@gmail.com>
+Date:   Thu Mar 10 12:25:46 2022 +0200
+
+    Components
+
+[33mcommit 584f0d8a58ebbcf6244e3632adb0d9ed63809e58[m
+Author: Petrisor <petrisorc65@gmail.com>
+Date:   Mon Feb 28 01:36:25 2022 +0200
+
+    Initialize project using Create React App
